@@ -32,3 +32,8 @@ variable "devices" {
   type = list(map(string))
   default = []
 }
+
+variable "labels" {
+  type = list(map(string))
+  default = []
+}

@@ -36,4 +36,12 @@ resource "docker_container" "container" {
       host_path = devices.value["host_path"]
     }
   }
+
+  dynamic "labels" {
+    for_each = var.labels
+    content {
+      label = labels.value["label"]
+      value = labels.value["value"]
+    }
+  }
 }
