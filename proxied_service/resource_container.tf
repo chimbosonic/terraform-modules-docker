@@ -13,6 +13,15 @@ resource "docker_container" "container" {
       read_only = volumes.value["read_only"]
     }
   }
+  
+  dynamic "ports" {
+    for_each = var.ports
+    content {
+      internal = ports.value["internal"]
+      external = ports.value["external"]
+      protocol = ports.value["protocol"]
+    }
+  }
 
   networks_advanced {
     name = var.network_id

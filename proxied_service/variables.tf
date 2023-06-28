@@ -24,3 +24,7 @@ type = string
 variable "service_port" {
   type = string
 }
+variable "ports" {
+  type = list(map(string))
+  default = []
+}
