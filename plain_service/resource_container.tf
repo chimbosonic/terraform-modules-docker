@@ -3,7 +3,10 @@ resource "docker_container" "container" {
   image = docker_image.image.image_id
 
   env = var.env_vars
-  
+
+  stdin_open = var.stdin_open
+  tty = var.tty
+
   dynamic "volumes" {
     for_each = var.volumes
     content {
